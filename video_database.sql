@@ -274,3 +274,13 @@ AS (
     AND r.video_id = v.video_id
     GROUP BY r.user_id
 )
+
+--q4. What is the most played video?
+WITH selected AS (SELECT TOP 1 wr.video_id, COUNT(user_id) AS view_count
+                FROM  watch_record wr
+                GROUP BY video_id
+                ORDER BY COUNT(user_id) DESC)
+SELECT *
+FROM video V
+JOIN selected S
+ON V.video_id = S.video_id;
