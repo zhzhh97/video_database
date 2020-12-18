@@ -1,7 +1,7 @@
 --create new table
 
 CREATE TABLE [user] (
-  user_id varchar(max) NOT NULL PRIMARY KEY,
+  user_id int NOT NULL PRIMARY KEY,
   nickname varchar(max),
   age integer,
   sex varchar(max),
@@ -16,7 +16,7 @@ CREATE TABLE category (
 );
 
 CREATE TABLE video (
-  video_id int varchar(max) NOT NULL PRIMARY KEY,
+  video_id int NOT NULL PRIMARY KEY,
   video_title varchar(max),
   size float,
   user_id int FOREIGN KEY REFERENCES [user] (user_id),
